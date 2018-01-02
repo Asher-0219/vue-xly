@@ -5,7 +5,7 @@
       <span>提现</span>
     </nav>
     <ul id="list">
-      <li v-for="x in list">
+      <li v-for="x in list" @click="WithdrawalTo(x.operation)">
         <p>{{x.name}}</p>
         <img src="../../../static/img/user/arrow1.png">
       </li>
@@ -14,29 +14,53 @@
     <div id="contact">
       <p>联系客服</p>
     </div>
+    <withdrawalTo :data="data" @close="close" :class="{translateX:withdrawalTo}"></withdrawalTo>
   </div>
 </template>
 <script>
+import withdrawalTo from './withdrawalTo'
 export default {
   data () {
     return {
+      withdrawalTo: false,
       list: [
         {
-          name: '提现到支付宝'
+          name: '提现到支付宝',
+          operation: 0
         },
         {
-          name: '提现到微信钱包'
-        },
-        {
-          name: '提现到银行卡'
+          name: '提现到银行卡',
+          operation: 1
         }
-      ]
+      ],
+      data: {
+        title: '',
+        ps: '',
+        operation: 0
+      }
     }
   },
   methods: {
+    close () {
+      this.withdrawalTo = false
+    },
+    WithdrawalTo (operation) {
+      if (operation === 0) {
+        this.data.title = '提现到支付宝'
+        this.data.ps = '为保证账户安全，若支付宝账号与姓名不符我们将不予提现'
+      } else {
+        this.data.title = '提现到银行卡'
+        this.data.ps = '为保证账户安全，若银行卡号与姓名不符我们将不予提现'
+      }
+      this.data.operation = operation
+      this.withdrawalTo = true
+    },
     back () {
       this.$emit('close', 5)
     }
+  },
+  components: {
+    withdrawalTo
   }
 }
 </script>
@@ -79,7 +103,7 @@ nav{
 }
 #list{
   width:100%;
-  height:3rem;
+  height:2rem;
   background:#fff;
   overflow: hidden;
   box-sizing:border-box;
@@ -127,5 +151,8 @@ nav{
   text-align: center;
   line-height:.88rem;
   font-weight:bold;
+}
+.translateX{
+  transform: translateX(0)!important;
 }
 </style>

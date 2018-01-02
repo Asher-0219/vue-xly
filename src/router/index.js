@@ -52,7 +52,6 @@ const MyWallet = () => import(/* webpackChunkName: "group-user" */ '@/views/user
 const MyTest = () => import(/* webpackChunkName: "group-user" */ '@/views/user/mytest')
 const MyTestResult = () => import(/* webpackChunkName: "group-user" */ '@/views/user/testresult')
 const MyFollow = () => import(/* webpackChunkName: "group-user" */ '@/views/user/myfollow')
-const MyExpert = () => import(/* webpackChunkName: "group-user" */ '@/views/user/myexpert')
 const MyStatus = () => import(/* webpackChunkName: "group-user" */ '@/views/user/mystatus')
 const Set = () => import(/* webpackChunkName: "group-user" */ '@/views/user/set')
 const Opinion = () => import(/* webpackChunkName: "group-user" */ '@/views/user/opinion')
@@ -62,6 +61,9 @@ const MyMessage = () => import(/* webpackChunkName: "group-user" */ '@/views/use
 const MyChat = () => import(/* webpackChunkName: "group-user" */ '@/views/user/mychat')
 const MyComment = () => import(/* webpackChunkName: "group-user" */ '@/views/user/comment')
 const MyNotice = () => import(/* webpackChunkName: "group-user" */ '@/views/user/mynotice')
+const MyInfo = () => import(/* webpackChunkName: "group-user" */ '@/views/user/myinfo')
+const EditNickName = () => import(/* webpackChunkName: "group-user" */ '@/views/user/editnickname')
+const EditSign = () => import(/* webpackChunkName: "group-user" */ '@/views/user/editsign')
 
 // 两性文章
 const Article = () => import('@/views/article/index')
@@ -293,11 +295,6 @@ export default new Router({
         name: 'myFollow'
       },
       {
-        path: 'expert',
-        component: MyExpert,
-        name: 'myExpert'
-      },
-      {
         path: 'status',
         component: MyStatus,
         name: 'myStatus'
@@ -341,6 +338,21 @@ export default new Router({
         path: 'notice',
         component: MyNotice,
         name: 'myNotice'
+      },
+      {
+        path: 'info',
+        component: MyInfo,
+        name: 'myInfo'
+      },
+      {
+        path: 'editname',
+        component: EditNickName,
+        name: 'editname'
+      },
+      {
+        path: 'editsign',
+        component: EditSign,
+        name: 'editsign'
       }
     ]
   },

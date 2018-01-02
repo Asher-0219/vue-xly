@@ -5,10 +5,10 @@
         <mt-button icon="back"></mt-button>
       </router-link>
       <mt-button slot="right">
-        <div style="background-image:url(../../static/img/user/setting.png)"></div>
+        <div style="background-image:url(../../static/img/user/setting.png)" @click="$router.push({name: 'set'})"></div>
       </mt-button>
     </mt-header>
-    <div class="xlyuser-top">
+    <div class="xlyuser-top" @click="toMyInfo">
       <div class="xlyuser-top__avatar--wrapper">
         <div class="xlyuser-top__avatar" style="background-image:url(http://oxyevccoz.bkt.clouddn.com/jimo-app-file/2017/11/1510555814258430?vframe/jpg/offset/1)"></div>
       </div>
@@ -54,13 +54,13 @@
         categoryList: [
           {name: 'message', text: '消息中心', route: 'myMessage'},
           // {name: 'advisory', text: '预约咨询'},
-          {name: 'expert', text: '专家入驻', route: 'myExpert'},
+          {name: 'expert', text: '专家入驻', route: 'partnership'},
           {name: 'wallet', text: '我的钱包', route: 'myWallet'},
           {name: 'level', text: '我的等级', route: 'myLevel'},
           {name: 'status', text: '我的动态', route: 'myStatus'},
           {name: 'test', text: '我的测试', route: 'myTest'},
-          {name: 'collect', text: '我的收藏', route: 'myCollect'},
-          {name: 'opinion', text: '我的反馈'}
+          {name: 'collect', text: '我的收藏', route: 'myCollect'}
+          // {name: 'opinion', text: '我的反馈'}
         ]
       }
     },
@@ -77,6 +77,9 @@
         }).then(action => {
           console.log(action)
         })
+      },
+      toMyInfo () {
+        this.$router.push({name: 'myInfo'})
       }
     }
   }

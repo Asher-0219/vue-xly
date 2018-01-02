@@ -13,7 +13,7 @@
   /*
   *  选择日期 适用页面：个人信息修改 登入信息输入
   *  没有传参
-  *  返回 @dateClose:{data:null} @areaOk:{data:{age:'年龄'}}
+  *  返回 @dateClose:{data:null} @dateOk:{age:'年龄'}
   * */
   export default {
     data () {
